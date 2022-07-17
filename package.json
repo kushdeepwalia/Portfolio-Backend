@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kushdeepwalia/Portfolio-Backend.git"
+  },
+  "author": "Kushdeep Walia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kushdeepwalia/Portfolio-Backend/issues"
+  },
+  "homepage": "https://github.com/kushdeepwalia/Portfolio-Backend#readme"
+}
