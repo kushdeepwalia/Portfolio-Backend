@@ -7,9 +7,9 @@ const mongoose = require("mongoose");
 //    process.env.ChaperoneDB_Pass +
 //    "@chaperonedb.ln2io.mongodb.net/?retryWrites=true&w=majority";
 
-const uri = "mongodb://localhost:27017/PersonalPortfolio";
+const uri = process.env.MONGO_URI !== undefined ? process.env.MONGO_URI : "mongodb://localhost:27017/PersonalPortfolio";
 
-mongoose.connect(process.env.MONGO_URI || uri, {
+mongoose.connect(uri, {
    useNewUrlParser: true,
    useUnifiedTopology: true,
 });
