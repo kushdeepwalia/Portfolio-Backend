@@ -1,5 +1,4 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const morgan = require("morgan");
 const helmet = require("helmet");
 const app = express();
@@ -33,5 +32,5 @@ app.listen(port, () => {
    console.log(`✅ Listening: http://localhost:${port}`);
    db.connection
       .on("open", () => console.log("✅ MONGODB CONNECTED"))
-      .on("error", (err) => console.error(err.message));
+      .on("error", (err) => console.error("❌ MONGODB NOT CONNECTED"));
 });

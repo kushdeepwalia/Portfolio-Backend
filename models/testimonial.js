@@ -1,8 +1,11 @@
 const mongoose = require("mongoose");
 const Joi = require("joi");
-const projectSchema = new mongoose.Schema({
-
-   name: {
+const testimonialSchema = new mongoose.Schema({
+   authorName: {
+      type: String,
+      required: true
+   },
+   message: {
       type: String,
       required: true
    },
@@ -14,32 +17,21 @@ const projectSchema = new mongoose.Schema({
       type: String,
       required: true
    },
-   desc: {
-      type: String,
-      required: true
-   },
-   url: {
-      type: String,
-      required: true
-   },
    visibility: {
       type: Boolean,
       default: false,
       required: true
-   },
-   position: {
-      type: Number,
-      required: true
    }
 })
 
-const Projects = new mongoose.model("Projects", projectSchema);
+const Testimonials = new mongoose.model("Testimonials", testimonialSchema);
 
-function validateProject(project) {
+function validateTestimonial(testimonial) {
    const schema = Joi.object({
+
    });
 
-   return schema.validate(project);
+   return schema.validate(testimonial);
 }
 
-module.exports = Projects;
+module.exports = Testimonials;
