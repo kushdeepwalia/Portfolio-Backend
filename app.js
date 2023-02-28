@@ -37,13 +37,11 @@ app.use("/", (req, res, next) => {
 })
 app.use("/api/v1", api);
 
-const port = process.env.PORT || 5000;
-
 app.listen(process.env.PORT || 3002, function () {
    console.log(
       "Express server listening on port %d in %s mode",
       this.address().port,
       app.settings.env
    );
-   connection(uri);
+   connection(app.settings.env === "development" ? "mongodb://localhost:27017/PersonalPortfolio" : process.env.MONGO_URI);
 });

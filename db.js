@@ -8,10 +8,6 @@ mongoose.set('strictQuery', false);
 //    process.env.ChaperoneDB_Pass +
 //    "@chaperonedb.ln2io.mongodb.net/?retryWrites=true&w=majority";
 
-const uri = process.env.MONGO_URI !== undefined ? process.env.MONGO_URI : "mongodb://127.0.0.1:27017/PersonalPortfolio";
-
-console.log(uri);
-
 function connection(uri) {
    mongoose
       .connect(uri)
