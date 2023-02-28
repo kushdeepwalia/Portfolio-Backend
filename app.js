@@ -5,15 +5,6 @@ const app = express();
 const api = require("./routes");
 const connection = require("./db");
 
-// const uri =
-//    "mongodb+srv://" +
-//    process.env.ChaperoneDB_User +
-//    ":" +
-//    process.env.ChaperoneDB_Pass +
-//    "@chaperonedb.ln2io.mongodb.net/?retryWrites=true&w=majority";
-
-const uri = "mongodb://localhost:27017/PersonalPortfolio";
-
 app.use(morgan("dev"));
 app.use(helmet());
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
