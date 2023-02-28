@@ -23,7 +23,9 @@ app.use((req, res, next) => {
    }
    next();
 });
-
+app.use("/", (req, res, next) => {
+   res.status(200).json({ message: "Api Working" })
+})
 app.use("/api/v1", api);
 
 const port = process.env.PORT || 5000;
