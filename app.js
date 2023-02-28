@@ -28,11 +28,11 @@ app.use("/", (req, res, next) => {
    res.status(200).json({ message: "Api Working" })
 })
 
-app.listen(process.env.PORT || 3002, function () {
+app.listen(process.env.PORT || 5000, function () {
    console.log(
       "Express server listening on port %d in %s mode",
       this.address().port,
       app.settings.env
    );
-   connection(app.settings.env === "development" ? "mongodb://localhost:27017/PersonalPortfolio" : process.env.MONGO_URI);
+   connection(app.settings.env === "development" ? "mongodb://127.0.0.1:27017/PersonalPortfolio" : process.env.MONGO_URI);
 });
