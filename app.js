@@ -3,7 +3,16 @@ const morgan = require("morgan");
 const helmet = require("helmet");
 const app = express();
 const api = require("./routes");
-const db = require("./db");
+const connection = require("./db");
+
+// const uri =
+//    "mongodb+srv://" +
+//    process.env.ChaperoneDB_User +
+//    ":" +
+//    process.env.ChaperoneDB_Pass +
+//    "@chaperonedb.ln2io.mongodb.net/?retryWrites=true&w=majority";
+
+const uri = "mongodb://localhost:27017/PersonalPortfolio";
 
 app.use(morgan("dev"));
 app.use(helmet());
@@ -30,9 +39,11 @@ app.use("/api/v1", api);
 
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => {
-   console.log(`✅ Listening: http://localhost:${port}`);
-   db.connection
-      .on("open", () => console.log("✅ MONGODB CONNECTED"))
-      .on("error", (err) => console.error("❌ MONGODB NOT CONNECTED"));
+app.listen(process.env.PORT || 3002, function () {
+   console.log(
+      "Express server listening on port %d in %s mode",
+      this.address().port,
+      app.settings.env
+   );
+   connection(uri);
 });

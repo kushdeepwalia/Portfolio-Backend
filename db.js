@@ -11,9 +11,12 @@ mongoose.set('strictQuery', false);
 const uri = process.env.MONGO_URI !== undefined ? process.env.MONGO_URI : "mongodb://127.0.0.1:27017/PersonalPortfolio";
 
 console.log(uri);
-mongoose.connect(uri, {
-   useNewUrlParser: true,
-   useUnifiedTopology: true,
-});
 
-module.exports = mongoose;
+function connection(uri) {
+   mongoose
+      .connect(uri)
+      .then(() => console.log("Database Connected..."))
+      .catch((err) => console.log("Could not connect to Database. ", err.message));
+}
+
+module.exports = connection;
