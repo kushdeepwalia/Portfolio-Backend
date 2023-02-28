@@ -23,10 +23,10 @@ app.use((req, res, next) => {
    }
    next();
 });
+app.use("/api/v1", api);
 app.use("/", (req, res, next) => {
    res.status(200).json({ message: "Api Working" })
 })
-app.use("/api/v1", api);
 
 app.listen(process.env.PORT || 3002, function () {
    console.log(
