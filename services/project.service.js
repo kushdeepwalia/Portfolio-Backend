@@ -2,20 +2,17 @@ const Projects = require("../models/project");
 
 async function get(req, res, next) {
    const { id } = req.params;
-   console.log("GET ONE");
    const project = await Projects.findById(id);
    res.json(project);
 }
 
 async function getAll(req, res, next) {
    const projects = await Projects.find().lean();
-   console.log("GET ALL");
    res.json({ projects });
 }
 
 async function addNew(req, res, next) {
    try {
-      console.log("ADD NEW");
       const { name, desc, url, visibility, image, imageName, position } = req.body;
       await Projects.create({ name, desc, url, visibility, image, imageName, position });
       res.json({ message: "Success" });
@@ -26,7 +23,6 @@ async function addNew(req, res, next) {
 
 async function edit(req, res, next) {
    try {
-      console.log("EDIT");
       const { name, desc, url, visibility, image, imageName, position } = req.body;
       const { id } = req.params;
       let response = await Projects.findByIdAndUpdate({ _id: id }, { name, desc, url, visibility, image, imageName, position })
@@ -39,7 +35,6 @@ async function edit(req, res, next) {
 
 async function editPosition(req, res, next) {
    try {
-      console.log("EDIT ORDER");
       const { id1, id2 } = req.params;
       let firstData = await Projects.findById(id1);
       let secondData = await Projects.findById(id2);
@@ -64,7 +59,6 @@ async function editPosition(req, res, next) {
 
 async function editVisibility(req, res, next) {
    try {
-      console.log("EDIT VISIBILITY");
       const { id } = req.params;
       const { visibility } = req.body;
       const project = await Projects.updateOne({ _id: id }, { visibility: visibility });
@@ -82,7 +76,6 @@ async function editVisibility(req, res, next) {
 
 async function delProject(req, res, next) {
    try {
-      console.log("DELETE");
       const { id } = req.params;
       const del = await Projects.findByIdAndDelete({ _id: id });
       res.json({ message: "Deleted Successfully!" })

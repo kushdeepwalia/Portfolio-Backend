@@ -2,20 +2,17 @@ const Testimonials = require("../models/testimonial");
 
 async function get(req, res, next) {
    const { id } = req.params;
-   console.log("GET ONE");
    const testimonial = await Testimonials.findById(id);
    res.json(testimonial);
 }
 
 async function getAll(req, res, next) {
-   const testimonials = await Testimonials.find().lean();
-   console.log("GET ALL");
+   const testimonials = await Testimonials.find().lean()
    res.json({ testimonials });
 }
 
 async function addNew(req, res, next) {
    try {
-      console.log("ADD NEW");
       const { authorName, message, image, imageName, visibility } = req.body;
       await Testimonials.create({ authorName, message, visibility, image, imageName });
       res.json({ message: "Success" });
@@ -26,7 +23,6 @@ async function addNew(req, res, next) {
 
 async function edit(req, res, next) {
    try {
-      console.log("EDIT");
       const { authorName, message, image, imageName, visibility } = req.body;
       const { id } = req.params;
       let response = await Testimonials.findByIdAndUpdate({ _id: id }, { authorName, message, image, imageName, visibility })
@@ -39,7 +35,6 @@ async function edit(req, res, next) {
 
 async function editPosition(req, res, next) {
    try {
-      console.log("EDIT ORDER");
       const { id1, id2 } = req.params;
       let firstData = await Testimonials.findById(id1);
       let secondData = await Testimonials.findById(id2);
@@ -64,7 +59,6 @@ async function editPosition(req, res, next) {
 
 async function editVisibility(req, res, next) {
    try {
-      console.log("EDIT VISIBILITY");
       const { id } = req.params;
       const { visibility } = req.body;
       const testimonial = await Testimonials.updateOne({ _id: id }, { visibility: visibility });
@@ -82,7 +76,6 @@ async function editVisibility(req, res, next) {
 
 async function delTestimonial(req, res, next) {
    try {
-      console.log("DELETE");
       const { id } = req.params;
       const del = await Testimonials.findByIdAndDelete({ _id: id });
       res.json({ message: "Deleted Successfully!" })

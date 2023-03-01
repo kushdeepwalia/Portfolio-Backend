@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.use("/auth", require("./auth.route"));
+router.use("/positions", require("./positions.route"));
 router.use("/projects", require("./project.route"))
 router.use("/testimonials", require("./testimonial.route"))
 router.use("/", (req, res, next) => {
