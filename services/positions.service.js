@@ -2,7 +2,7 @@ const Positions = require("../models/postion")
 
 async function getAll(req, res, next) {
    const positions = await Positions.find().lean();
-   res.json(positions);
+   res.json({ positions });
 }
 
 async function addNew(req, res, next) {
