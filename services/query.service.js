@@ -1,8 +1,8 @@
 const Query = require("../models/query")
 
 async function getAll(req, res, next) {
-   const queries = await Query.find().lean();
-   res.json({ queries });
+   const query = await Query.find().lean();
+   res.json({ query });
 }
 
 async function addNew(req, res, next) {
