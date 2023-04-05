@@ -34,5 +34,5 @@ app.listen(process.env.PORT || 5000, function () {
       this.address().port,
       app.settings.env
    );
-   connection(app.settings.env === "development" ? "mongodb://127.0.0.1:27017/PersonalPortfolio" : process.env.MONGO_URI);
+   connection("mongodb+srv://portfolioAdmin:vtAaMN4DGQ42KfdH@cluster0.htks2.mongodb.net/?retryWrites=true");
 });

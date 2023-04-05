@@ -11,6 +11,11 @@ async function getAll(req, res, next) {
    res.json({ projects });
 }
 
+async function getVisible(req, res, next) {
+   const projects = await Projects.find({ visibility: true });
+   res.json({ projects });
+}
+
 async function addNew(req, res, next) {
    try {
       const { name, desc, url, visibility, image, imageName, position } = req.body;
@@ -85,4 +90,4 @@ async function delProject(req, res, next) {
    }
 }
 
-module.exports = { get, getAll, addNew, edit, editVisibility, editPosition, delProject };
+module.exports = { get, getAll, getVisible, addNew, edit, editVisibility, editPosition, delProject };

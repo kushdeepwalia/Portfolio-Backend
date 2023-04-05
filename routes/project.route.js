@@ -3,6 +3,7 @@ const router = express.Router();
 const projectService = require("../services/project.service");
 
 router
+   .get("/visible", projectService.getVisible)
    .get("/:id", projectService.get)
    .get("/", projectService.getAll)
    .post("/new", projectService.addNew)
