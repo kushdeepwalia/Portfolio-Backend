@@ -34,5 +34,5 @@ app.listen(process.env.PORT || 5000, function () {
       this.address().port,
       app.settings.env
    );
-   connection("mongodb+srv://portfolioAdmin:vtAaMN4DGQ42KfdH@cluster0.htks2.mongodb.net/?retryWrites=true");
+   connection("mongodb+srv://portfolioAdmin:JG8ipSGeQtAXAG2s@cluster0.htks2.mongodb.net/?retryWrites=true");
 });
