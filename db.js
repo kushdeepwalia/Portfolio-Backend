@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 mongoose.set('strictQuery', false);
 
-// const uri =
-//    "mongodb+srv://" +
-//    process.env.ChaperoneDB_User +
-//    ":" +
-//    process.env.ChaperoneDB_Pass +
-//    "@chaperonedb.ln2io.mongodb.net/?retryWrites=true&w=majority";
+const uri =
+   "mongodb+srv://" +
+   process.env.portfolioDB_User +
+   ":" +
+   process.env.portfolioDB_Pass +
+   "@cluster0.htks2.mongodb.net/"
 
 function connection(uri) {
    mongoose
